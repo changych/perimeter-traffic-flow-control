@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="ITS_Chj_final.net.xml" />
+        <route-files value="ITS_demand18000.rou.xml" />
+        <additional-files value="loops_ctrl.xml" />
+    </input>
+
+    <time>
+        <begin value="0" />
+        <end value="3600" />
+    </time>
+
+    <output>
+		<queue-output value="./ITS_results/RCC/ITS2_RCC_queue18000.xml" />
+		<summary value="./ITS_results/RCC/ITS2_RCC_summary18000.xml" />
+		<tripinfo-output value="./ITS_results/RCC/ITS2_RCC_trip18000.xml" />
+	</output>
+
+    <process>
+        <route-steps value="200" />
+        <routing-algorithm value="astar" />
+        <device.rerouting.probability value="1" />
+        <device.rerouting.period value="60" />
+    </process>
+
+    <report>
+        <xml-validation value="never" />
+        <duration-log.disable value="true" />
+        <no-step-log value="true" />        
+    </report>
+
+</configuration>
