@@ -252,41 +252,41 @@ if __name__ == '__main__':
 					if Nveh[r1]<=Nmax[r1] and Nveh[r2]<=Nmax[r2]:
 						connection = r1+'-'+r2
 						for edge in TransflowMove[connection].keys():
-							TransflowMove[connection][edge]=1
+							TransflowMove[connection][edge]=0.75
 						connection = r2+'-'+r1
 						for edge in TransflowMove[connection].keys():
-							TransflowMove[connection][edge]=1
+							TransflowMove[connection][edge]=0.75
 					elif Nveh[r1]>Nmax[r1] and Nveh[r2]<=Nmax[r2]:
 						connection = r1 + '-' + r2
 						for edge in TransflowMove[connection].keys():
-							TransflowMove[connection][edge] = 1
+							TransflowMove[connection][edge] = 0.75
 						connection = r2 + '-' + r1
 						for edge in TransflowMove[connection].keys():
-							TransflowMove[connection][edge] = 0
+							TransflowMove[connection][edge] = 0.25
 					elif Nveh[r1]<=Nmax[r1] and Nveh[r2]>Nmax[r2]:
 						connection = r1 + '-' + r2
 						for edge in TransflowMove[connection].keys():
-							TransflowMove[connection][edge] = 0
+							TransflowMove[connection][edge] = 0.25
 						connection = r2 + '-' + r1
 						for edge in TransflowMove[connection].keys():
-							TransflowMove[connection][edge] = 1
+							TransflowMove[connection][edge] = 0.75
 					elif Nveh[r1]>Nmax[r1] and Nveh[r2]>Nmax[r2]:
 						ratio_r1 = Nveh[r1]/LinksOccupy[r1]
 						ratio_r2 = Nveh[r2]/LinksOccupy[r2]
 						if ratio_r1>ratio_r2:
 							connection = r1 + '-' + r2
 							for edge in TransflowMove[connection].keys():
-								TransflowMove[connection][edge] = 1
+								TransflowMove[connection][edge] = 0.75
 							connection = r2 + '-' + r1
 							for edge in TransflowMove[connection].keys():
-								TransflowMove[connection][edge] = 0
+								TransflowMove[connection][edge] = 0.25
 						else:
 							connection = r1 + '-' + r2
 							for edge in TransflowMove[connection].keys():
-								TransflowMove[connection][edge] = 0
+								TransflowMove[connection][edge] = 0.25
 							connection = r2 + '-' + r1
 							for edge in TransflowMove[connection].keys():
-								TransflowMove[connection][edge] = 1
+								TransflowMove[connection][edge] = 0.75
 
 				action = Action_files.createElement('action')
 				action.setAttribute('time',str(i))
